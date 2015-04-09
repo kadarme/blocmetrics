@@ -1,0 +1,15 @@
+<h1><%= @registered_application.name %></h1>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <th>Application Name</th>
+        <th>Application URL</th>
+      </thead>
+      <tbody>
+        <tr>         
+          <td><%= @registered_application.name %></td>        
+          <td><%= @registered_application.url %></td>
+        </tr>
+      </tbody>
+    </table>
+<%= link_to 'Edit', edit_registered_application_path(@registered_application) %> |
+<%= link_to 'Back', registered_applications_path %>

@@ -1,0 +1,30 @@
+<h1>Registered Applications</h1>
+<div class="container">  
+  <div class="col-md-8">
+    <%= link_to 'Add application', new_registered_application_path, class: 'btn btn-info' %> 
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Application Name</th>
+          <th>Application URL</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @registered_applications.each do |app| %>
+        <tr>
+          <td><%= app.name %></td>
+          <td><%= app.url %></td>
+          <td>
+            <%= link_to 'Show', registered_application_path(app), class: 'btn btn-default' %>  
+            <%= link_to 'Edit', edit_registered_application_path(app), class: 'btn btn-success' %>
+            <%= link_to 'Delete', registered_application_path(app), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this application?' } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+          

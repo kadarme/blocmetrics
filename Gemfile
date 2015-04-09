@@ -49,3 +49,4 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro'
+gem 'faker'
