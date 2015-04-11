@@ -14,8 +14,8 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def create
-    @registered_application = RegisteredApplication.new(registered_application_params)
-    if @registered_application.update_attributes(registered_application_params)
+    @registered_application = current_user.registered_applications.new(registered_application_params)
+    if @registered_application.save
       flash[:notice] = "Application was saved successfully."
       redirect_to registered_applications_path
     else
