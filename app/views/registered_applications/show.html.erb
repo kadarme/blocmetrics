@@ -11,5 +11,21 @@
         </tr>
       </tbody>
     </table>
+
+    <table class="table table-bordered table-hover">
+      <thead>
+        <th>Event Name</th>
+        <th>Event Count</th>
+      </thead>
+      <tbody>
+        <% @events.each do |name, events| %>
+        <tr>         
+          <td><%= name %></td>        
+          <td><%= events.size %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 <%= link_to 'Edit', edit_registered_application_path(@registered_application) %> |
+<%= link_to 'Delete', registered_application_path(@registered_application), method: :delete, data: { confirm: 'Are you sure you want to delete this application?' } %> |
 <%= link_to 'Back', registered_applications_path %>

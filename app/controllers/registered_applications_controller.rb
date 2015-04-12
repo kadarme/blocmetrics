@@ -7,6 +7,7 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def show
+    @events = @registered_application.events.group_by(&:name)
   end
 
   def new
@@ -40,7 +41,7 @@ class RegisteredApplicationsController < ApplicationController
   def destroy
     name = @registered_application.name  
     if @registered_application.destroy
-      flash[:notice] = "\"#{name}\" was deleted successfully."
+      flash[:notice] = "#{name} was deleted successfully."
       redirect_to registered_applications_path
     else
       flash[:error] = "There was an error deleting the application. Please try again."

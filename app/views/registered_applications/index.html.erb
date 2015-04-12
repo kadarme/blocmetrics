@@ -13,7 +13,7 @@
       <tbody>
         <% @registered_applications.each do |app| %>
         <tr>
-          <td><%= app.name %></td>
+          <td><%= link_to app.name, registered_application_path(app) %></td>
           <td><%= app.url %></td>
           <td>
             <%= link_to 'Show', registered_application_path(app), class: 'btn btn-default' %>  

@@ -38,8 +38,23 @@ example_app.save!
 end
 registered_applications = RegisteredApplication.all
 
+# Create events
+example_event = Event.create!(
+  registered_application:        example_app,
+  name:                          'view'
+  )
+example_event.save!
+
+15.times do 
+  event = Event.create!(
+  registered_application:        registered_applications.sample,
+  name:                          Faker::Hacker.verb
+  )
+end
+events = Event.all
 
  
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{RegisteredApplication.count} applications created"
+puts "#{Event.count} events created." 
